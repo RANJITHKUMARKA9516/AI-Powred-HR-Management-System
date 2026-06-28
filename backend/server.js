@@ -7,10 +7,13 @@ const authRoutes = require("./routes/authRoutes");
 dotenv.config();
 
 const app = express();
+const jobRoutes =
+require("./routes/jobRoutes");
 
 app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
+app.use("/api/jobs", jobRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
